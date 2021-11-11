@@ -2,15 +2,14 @@ package utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.LinkedList;
 
 public class FileHandler {
 
-	public static LinkedList<String[]> read(String fileName) throws IOException{
+	public static LinkedList<String[]> read(String fileName) {
 		LinkedList<String[]> list = new LinkedList<String[]>();
-		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		try {
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
 		    String line = br.readLine();
 	    	String[] data = line.split(",");
 		    while (line != null) {
@@ -18,8 +17,10 @@ public class FileHandler {
 		    	list.add(data);
 		        line = br.readLine();
 		    }
-		} finally {
 		    br.close();
+		} catch(Exception e) {
+			System.out.println("Arquivo não encontrado ou mal formatado");
+			return null;
 		}
 		return list;
 	}
