@@ -10,9 +10,9 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			LinkedList<String[]> dataset = FileHandler.read("C:\\Users\\edils\\eclipse-workspace\\KNN\\src\\dataset.txt");
-			System.out.println(ar.size());
-			for(int i = 0; i<ar.size(); i++) {
-				for(String s : ar.get(i)) {
+			System.out.println(dataset.size());
+			for(int i = 0; i<dataset.size(); i++) {
+				for(String s : dataset.get(i)) {
 					System.out.print(s+",");
 				}
 				System.out.println();
