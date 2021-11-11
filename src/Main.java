@@ -9,7 +9,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			LinkedList<String[]> dataset = FileHandler.read("C:\\Users\\edils\\eclipse-workspace\\KNN\\src\\dataset.txt");
+			LinkedList<String[]> file = FileHandler.read("C:\\Users\\edils\\eclipse-workspace\\KNN\\src\\dataset.txt");
+			String[] atributos = file.get(0);
+			LinkedList<String[]> dataset = file;
+			dataset.removeFirst();
+			System.out.println(atributos);
 			System.out.println(dataset.size());
 			for(int i = 0; i<dataset.size(); i++) {
 				for(String s : dataset.get(i)) {
