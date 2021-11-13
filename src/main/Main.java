@@ -1,6 +1,8 @@
 package main;
 
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -10,7 +12,8 @@ import utils.KNN;
 public class Main {
 
 	public static void main(String[] args) {
-		LinkedList<String[]> file = FileHandler.read("C:\\Users\\edils\\eclipse-workspace\\KNN\\src\\dataset.txt");
+		Path path = Paths.get(System.getProperty("user.dir")); 
+		LinkedList<String[]> file = FileHandler.read(path.resolve("src/dataset.txt").toString());
 		KNN knn = new KNN(file);
 		Scanner leitor = new Scanner(System.in);
 		String[] dados = null;
@@ -34,7 +37,7 @@ public class Main {
 			}
 		}
 		leitor.close();
-		knn.classify(dados);
+		System.out.println("Classe recomendada: " + knn.classify(knn.getDataset(), 5, dados));
 	}
 
 }
