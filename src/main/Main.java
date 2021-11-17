@@ -13,7 +13,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Path path = Paths.get(System.getProperty("user.dir")); 
-		LinkedList<String[]> file = FileHandler.read(path.resolve("src/dataset.txt").toString());
+		LinkedList<String[]> file = FileHandler.read(path.resolve("src/iris.data").toString());
 		KNN knn = new KNN(file);
 		Scanner leitor = new Scanner(System.in);
 		String[] dados = null;
